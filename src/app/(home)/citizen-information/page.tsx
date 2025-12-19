@@ -1,24 +1,39 @@
 "use client";
 
-import UpidataDisplay from "@/components/upi/UpidataDisplay";
-import { fetchUpiData } from "@/services/apiKey";
-import { useQuery } from "@tanstack/react-query";
+import CitizenData from "@/components/citizenData/CitizenData";
+import { findNationalIdData } from "@/services";
+import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useState } from "react";
 
 const Page = () => {
   const [nationalId, setNationalId] = useState("");
-  const [queryKey, setQueryKey] = useState("");
-  const { data, isLoading, error } = useQuery({
-    queryKey: [queryKey],
-    queryFn: () => fetchUpiData(nationalId),
-    enabled: !!queryKey,
-    notifyOnChangeProps: ["data", "error", "isLoading"]
+  const [data, setData] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: findNationalIdData,
+    onError(error: any) {
+      const errorMessage = error.response?.data?.message
+        ? error.response?.data?.message
+        : error.response?.data?.error.content || error.message;
+      setError(errorMessage);
+      setNationalId("");
+      setLoading(false);
+    },
+    onSuccess: (res) => {
+      setLoading(false);
+      setData(res);
+      setError("");
+      setNationalId("");
+    },
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitInformationTracker = (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
-    setQueryKey("nationalId-data");
+    mutation.mutate(nationalId);
   };
 
   return (
@@ -29,11 +44,15 @@ const Page = () => {
           National ID System
         </h1>
         <p className="text-sm">Facilitates easy access and retrieval of citizen information.</p>
-        <form onSubmit={handleSubmit} className="mt-4">
+        <form onSubmit={submitInformationTracker} className="mt-4">
           <input
             type="text"
             value={nationalId}
-            onChange={(e) => setNationalId(e.target.value)}
+            onChange={(e) => {
+              setNationalId(e.target.value);
+              setError("");
+              setData(null);
+            }}
             placeholder="Enter national ID"
             className="w-full p-4 border border-white rounded-3xl focus:outline-none"
             required
@@ -42,13 +61,12 @@ const Page = () => {
             type="submit"
             className={`w-1/2 p-2 mt-4 mb-4 text-white bg-blue-500 rounded-3xl ${nationalId.length === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
           >
-            Fetch ID Data
+            {loading ? "Processing..." : "Fetch ID Data"}
           </button>
         </form>
 
-        {isLoading && <p>Loading...</p>}
-        {error && <p>Error fetching data: {error.message}</p>}
-        {data && <UpidataDisplay data={data.data} />}
+        {error && <p className="text-red-500">Error fetching data: {error}</p>}
+        {data && <CitizenData data={data} />}
       </main>
     </div>
   );

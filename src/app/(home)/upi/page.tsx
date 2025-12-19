@@ -1,7 +1,7 @@
 "use client";
 
 import UpidataDisplay from "@/components/upi/UpidataDisplay";
-import { fetchUpiData } from "@/services/apiKey";
+import { fetchUpiData } from "@/services";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,7 +13,6 @@ const Page = () => {
     queryKey: [queryKey],
     queryFn: () => fetchUpiData(upi),
     enabled: !!queryKey,
-    notifyOnChangeProps: ["data", "error", "isLoading"]
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

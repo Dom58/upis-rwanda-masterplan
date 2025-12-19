@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Suspense } from "react";
-import "@/app/globals.css";
 import { Provider } from "@/components/common/Provider";
+import tailwindConfig from "@/tailwind.config";
+import "@/app/globals.css";
 
 const poppins = Poppins({
   preload: true,
