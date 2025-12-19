@@ -40,8 +40,8 @@ const Page = () => {
     <div className="flex items-center justify-center">
       <main>
         <h1 className="flex text-3xl font-extrabold">
-          <Link href="/" className="text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
-          National ID System
+          <Link href="/" className="text-4xl text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
+          Rwanda national ID system
         </h1>
         <p className="text-sm">Facilitates easy access and retrieval of citizen information.</p>
         <form onSubmit={submitInformationTracker} className="mt-4">

@@ -24,8 +24,8 @@ const Page = () => {
     <div className="flex items-center justify-center">
       <main>
         <h1 className="flex text-3xl font-extrabold">
-          <Link href="/" className="text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
-          UPIs Management System
+          <Link href="/" className="text-4xl text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
+          UPIs management system
         </h1>
         <p className="text-sm">A centralized system for managing Rwanda's UPI and 2020-2050 masterplan.</p>
         <form onSubmit={handleSubmit} className="mt-4">
@@ -41,11 +41,10 @@ const Page = () => {
             type="submit"
             className={`w-1/2 p-2 mt-4 mb-4 text-white bg-blue-500 rounded-3xl ${upi.length === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
           >
-            Fetch UPI Data
+            {isLoading ? "Processing..." : "Fetch UPI Data"}
           </button>
         </form>
 
-        {isLoading && <p>Loading...</p>}
         {error && <p>Error fetching data: {error.message}</p>}
         {data && <UpidataDisplay data={data.data} />}
       </main>
