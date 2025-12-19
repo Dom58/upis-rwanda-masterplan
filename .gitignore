@@ -19,6 +19,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -39,3 +40,45 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+#
+bun.lockb
+.env
+pnpm-lock.yaml
+package-lock.json
+yarn-lock.json
+certificates
+yarn.lock
+
+#tasks 
+tasks.md
+/.qodo/
+
+.qodo
+
+hikerlink.code-workspace
+hk.ink.frontend.code-workspace
+pnpm-workspace.yaml
+task.md
+hiker-workspace.code-workspace
+pnpm-workspace.yaml
+EXAMPLES/
+
+
+# pnm & env
+pnpm-lock.yaml 
+.env
+#
+bun.lockb
+.env
+pnpm-lock.yaml
+package-lock.json
+yarn-lock.json
+certificates
+yarn.lock
+
+
