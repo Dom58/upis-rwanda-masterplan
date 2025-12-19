@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: rwanda-masterplan
-          path: ./out/ # Ensure this matches the export directory
+          path: ./dist/ # Ensure this matches the export directory
 
   deploy:
     environment:
