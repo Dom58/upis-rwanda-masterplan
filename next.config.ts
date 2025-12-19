@@ -5,7 +5,7 @@
 const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
-  basePath: isProd ? '/rwanda-masterplan' : '',
+  // basePath: isProd ? '/rwanda-masterplan' : '',
   output: 'export',
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`

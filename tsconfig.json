@@ -27,7 +27,7 @@
         "./src/*",
         "./*"
       ]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -37,8 +37,11 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "dist/types/**/*.ts",
-    "dist/dev/types/**/*.ts"
-, "src/app/not-found"  ],
+    "dist/dev/types/**/*.ts",
+    "src/app/not-found",
+    "out/types/**/*.ts",
+    "out/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

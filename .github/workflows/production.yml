@@ -78,7 +78,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: rwanda-masterplan
+          name: rwanda-data
           path: ./out/
 
   # Deployment job
