@@ -49,7 +49,6 @@ next-env.d.ts
 bun.lockb
 .env
 pnpm-lock.yaml
-package-lock.json
 yarn-lock.json
 certificates
 yarn.lock
