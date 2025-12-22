@@ -10,19 +10,13 @@ import 'leaflet/dist/leaflet.css';
 const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
   const [mapReady, setMapReady] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setMapReady(true);
-    }
-  }, []);
-
   const position: [number, number] = [
     parseFloat(coordinates.lat),
     parseFloat(coordinates.lon)
   ];
 
   const MarkerIcon = L.icon({
-    iconUrl: '/marker-icon.png',
+    iconUrl: 'https://cdn.iconscout.com/icon/free/png-512/free-location-icon-svg-download-png-2561454.png?f=webp&w=256',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
@@ -46,6 +40,12 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
       alert("Sharing not supported on this browser.");
     }
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setMapReady(true);
+    }
+  }, []);
 
   return (
     <>
@@ -72,7 +72,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
           </button>
 
           <div className="mt-4">
-            <h2 className="text-lg font-bold">Scan to Open in Google Maps:</h2>
+            <p>Scan to Open in Google Maps:</p>
             <QRCodeCanvas value={mapUrl} size={128} />
           </div>
         </div>
