@@ -29,3 +29,12 @@ interface ICitizenDataResponse {
 export interface INewCitizenDataResponse {
     data: ICitizenDataResponse;
 };
+
+interface Coordinates {
+  lat: string;
+  lon: string;
+}
+
+export interface MapComponentProps {
+  coordinates: Coordinates;
+}

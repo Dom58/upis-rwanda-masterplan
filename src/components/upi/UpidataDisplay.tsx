@@ -1,3 +1,7 @@
+import dynamic from 'next/dynamic';
+
+const MapComponent = dynamic(() => import('./MapComponent'), { ssr: false });
+
 const UpidataDisplay = ({ data }: { data: any }) => {
     return (
         <>
@@ -56,9 +60,9 @@ const UpidataDisplay = ({ data }: { data: any }) => {
                             <p><strong>Country:</strong> {data.representative?.countryName}</p>
                             <p><strong>Gender:</strong> {data.representative?.gender}</p>
                             <p><strong>Marital Status:</strong> {data.representative?.maritalStatus}</p>
-                            {/* <p><strong>Address:</strong>
-                        {`${data.representative?.address.village.villageName}, ${data.representative?.address.cell.cellName}, ${data.representative.address.sector.sectorName}, ${data.representative.address.district.districtName}, ${data.representative.address.province.provinceName}`}
-                    </p> */}
+                            <p><strong>Current address: </strong>
+                                {` ${data.representative?.address.village.villageName}, ${data.representative?.address.cell.cellName}, ${data.representative.address.sector.sectorName}, ${data.representative.address.district.districtName}, ${data.representative.address.province.provinceName}`}
+                            </p>
                         </div>
 
                         <div>
@@ -93,6 +97,13 @@ const UpidataDisplay = ({ data }: { data: any }) => {
                             <p><strong>Maximum Price:</strong> RWF {data.valuationValue?.maxPrice}</p>
                         </div>
                     </div>
+
+                    {data?.coordinates[0] && (
+                        <div className='p-6 mt-6 bg-white rounded-lg shadow-lg'>
+                            <h1 className="mb-2 text-3xl font-extrabold">View on map</h1>
+                            <MapComponent coordinates={data?.coordinates[0]} />
+                        </div>
+                    )}
                 </>
             ) : <p className="text-red-500">No UPI data available. Check well the UPI</p>
             }
