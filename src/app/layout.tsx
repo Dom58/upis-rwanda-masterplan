@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Suspense } from "react";
 import { Provider } from "@/components/common/Provider";
-import tailwindConfig from "@/tailwind.config";
 import "@/app/globals.css";
 
 const poppins = Poppins({
@@ -28,6 +27,6 @@ export default async function RootLayout({
 }
 
 export const metadata: Metadata = {
-  title: "UPIs Management System",
-  description: "Manage All UPIs efficiently and securely.",
+  title: "Search UPIs data | Rwanda UPI management system",
+  description: "Search and find UPI efficiently and securely.",
 };

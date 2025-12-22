@@ -1,5 +1,6 @@
 "use client";
 
+import { INewCitizenDataResponse } from "@/app/types";
 import CitizenData from "@/components/citizenData/CitizenData";
 import { findNationalIdData } from "@/services";
 import { useMutation } from "@tanstack/react-query";
@@ -8,7 +9,7 @@ import { useState } from "react";
 
 const Page = () => {
   const [nationalId, setNationalId] = useState("");
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<INewCitizenDataResponse | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 

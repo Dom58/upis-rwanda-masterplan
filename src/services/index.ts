@@ -1,4 +1,5 @@
 import { AppConfig } from "@/app/configs";
+import { INewCitizenDataResponse } from "@/app/types";
 import Axios from "axios";
 
 export const fetchUpiData = async (upi: string): Promise<any> => {
@@ -8,7 +9,7 @@ export const fetchUpiData = async (upi: string): Promise<any> => {
   return (await Axios.get(url)).data;
 };
 
-export const findNationalIdData = async (nationalIdentification: string): Promise<any> => {
+export const findNationalIdData = async (nationalIdentification: string): Promise<INewCitizenDataResponse> => {
   const url = AppConfig.nida!;
   return (await Axios.post(url, { nationalIdentification })).data;
 };

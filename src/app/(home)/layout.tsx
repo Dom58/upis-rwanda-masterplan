@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IHomeProps } from "../types";
 
 const Layout = ({ children }: IHomeProps) => {
