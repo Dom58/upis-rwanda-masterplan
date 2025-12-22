@@ -23,8 +23,8 @@ const Page = () => {
   return (
     <div className="flex items-center justify-center">
       <main>
-        <h1 className="flex text-3xl font-extrabold">
-          <Link href="/" className="text-4xl text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
+        <h1 className="flex text-xl font-extrabold">
+          <Link href="/" className="text-2xl text-blue-600"> <span className="mr-2 text-orange-600">{`< `}</span> </Link>
           UPIs management system
         </h1>
         <p className="text-sm">A centralized system for searching Rwanda's UPI for 2020-2050 masterplan.</p>

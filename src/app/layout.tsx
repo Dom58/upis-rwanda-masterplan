@@ -27,6 +27,6 @@ export default async function RootLayout({
 }
 
 export const metadata: Metadata = {
-  title: "All in one Finder",
+  title: "Rwanda all in one Finder",
   description: "Search and find important data efficiently and securely.",
 };

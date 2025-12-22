@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="flex items-center">
       <main>
-        <h1 className="text-3xl font-bold">All in one finder</h1>
+        <h1 className="text-2xl font-bold">Rwanda all in one finder</h1>
         <h1 className="font-medium text-orange-600 text-md">Centralized Rwanda data management</h1>
         <div>
           <div

@@ -85,7 +85,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
             {distance !== null && (
               <p className="mt-1">
                 You need to travel a distance of 
-                <span className='text-xl font-bold text-orange-400 underline'> {distance.toFixed(2)} km</span> from your current location.
+                <span className='font-bold text-orange-400 underline text-md'> {distance.toFixed(2)} km</span> from your current location.
               </p>
             )}
           </div>

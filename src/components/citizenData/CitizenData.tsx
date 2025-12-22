@@ -7,7 +7,7 @@ const CitizenData = ({ data }: { data: INewCitizenDataResponse }) => {
 
     return (
         <>
-            <h1 className="mb-5 text-3xl font-bold">Citizen information Overview</h1>
+            <h1 className="mb-5 text-xl font-bold">Citizen information Overview</h1>
             <div className="grid max-w-full grid-cols-1 p-6 mx-auto space-x-4 space-y-6 bg-white rounded-lg shadow-lg">
                 <div className="w-full">
                     <div className="mb-6">

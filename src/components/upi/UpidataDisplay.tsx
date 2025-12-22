@@ -7,7 +7,7 @@ const UpidataDisplay = ({ data }: { data: any }) => {
         <>
             {(!!data && data.owners?.length > 0) ? (
                 <>
-                    <h1 className="mt-6 mb-5 text-3xl font-bold">UPI Data Overview</h1>
+                    <h1 className="mt-6 mb-5 text-xl font-bold">UPI Data Overview</h1>
                     <div className="grid max-w-full p-6 mx-auto space-x-4 space-y-6 bg-white rounded-lg shadow-lg lg:grid-cols-2 sm:grid-cols-1">
                         <div className="mb-6">
                             <h2 className="text-xl font-semibold">Land Information</h2>
@@ -100,7 +100,7 @@ const UpidataDisplay = ({ data }: { data: any }) => {
 
                     {data?.coordinates[0] && (
                         <div className='p-6 mt-6 bg-white rounded-lg shadow-lg'>
-                            <h1 className="mb-2 text-3xl font-extrabold">View on map</h1>
+                            <h1 className="mb-2 text-xl font-extrabold">View on map</h1>
                             <MapComponent coordinates={data?.coordinates[0]} />
                         </div>
                     )}
