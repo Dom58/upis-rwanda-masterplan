@@ -9,7 +9,7 @@ const Layout = ({ children }: IHomeProps) => {
                 
                 <div className="flex justify-end mt-6">
                     <Image
-                        src="/img/logo.svg"
+                        src="./img/logo.svg"
                         alt="Logo"
                         width={100}
                         height={60}
