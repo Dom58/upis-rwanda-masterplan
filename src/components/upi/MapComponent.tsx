@@ -6,9 +6,11 @@ import { MapComponentProps } from '@/app/types';
 import L from 'leaflet';
 import { QRCodeCanvas } from 'qrcode.react';
 import 'leaflet/dist/leaflet.css';
+import { calculateDistance } from '@/app/lib/distance';
 
 const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
   const [mapReady, setMapReady] = useState(false);
+  const [distance, setDistance] = useState<number | null>(null);
 
   const position: [number, number] = [
     parseFloat(coordinates.lat),
@@ -47,6 +49,21 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+
+        const targetLat = parseFloat(coordinates.lat);
+        const targetLon = parseFloat(coordinates.lon);
+
+        const dist = calculateDistance(userLat, userLon, targetLat, targetLon);
+        setDistance(dist);
+      });
+    }
+  }, [coordinates]);
+
   return (
     <>
       {mapReady && (
@@ -63,17 +80,25 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
             </Marker>
           </MapContainer>
 
-          <p className='mt-6'>Share this Map and get the easiest way to navigate to that area.</p>
+          <div className='mb-4'>
+            <p className='mt-6'>Share this Map and get the easiest way to navigate to that area.</p>
+            {distance !== null && (
+              <p className="mt-1">
+                You need to travel a distance of 
+                <span className='text-xl font-bold text-orange-400 underline'> {distance.toFixed(2)} km</span> from your current location.
+              </p>
+            )}
+          </div>
           <button
             onClick={shareMap}
-            className="inline-block px-4 py-2 mt-1 text-white bg-orange-700 rounded hover:bg-orange-600"
+            className="inline-block px-4 py-2 mt-1 text-white bg-orange-700 rounded hover:bg-orange-600 hover:cursor-pointer"
           >
             Share the Map
           </button>
 
-          <div className="mt-4">
-            <p>Scan to Open in Google Maps:</p>
-            <QRCodeCanvas value={mapUrl} size={128} />
+          <div className="flex flex-col items-end mt-4">
+            <QRCodeCanvas value={mapUrl} size={100} />
+            <p className='flex items-center justify-center text-xs text-center'>Scan to Open Google Maps</p>
           </div>
         </div>
       )}
