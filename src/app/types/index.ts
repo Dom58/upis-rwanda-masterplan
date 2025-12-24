@@ -35,7 +35,7 @@ export interface INewCitizenDataResponse {
 
 interface Coordinates {
   lat: string;
-  lon: string;
+  long: string;
 }
 
 export interface MapComponentProps {

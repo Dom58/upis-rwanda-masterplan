@@ -14,7 +14,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
 
   const position: [number, number] = [
     parseFloat(coordinates.lat),
-    parseFloat(coordinates.lon)
+    parseFloat(coordinates.long)
   ];
 
   const MarkerIcon = L.icon({
@@ -24,10 +24,10 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
   });
-  const mapUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lon}`;
+  const mapUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.long}`;
 
   const shareMap = () => {
-    const shareText = `Check out this location in Rwanda: ${coordinates.lat},${coordinates.lon}`;
+    const shareText = `Check out this location in Rwanda: ${coordinates.lat},${coordinates.long}`;
     const shareData = {
       title: 'Rwanda Map',
       text: shareText,
@@ -56,7 +56,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
         const userLon = position.coords.longitude;
 
         const targetLat = parseFloat(coordinates.lat);
-        const targetLon = parseFloat(coordinates.lon);
+        const targetLon = parseFloat(coordinates.long);
 
         const dist = calculateDistance(userLat, userLon, targetLat, targetLon);
         setDistance(dist);
@@ -75,7 +75,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ coordinates }) => {
             />
             <Marker position={position} icon={MarkerIcon}>
               <Popup>
-                Coordinates: {coordinates.lat}, {coordinates.lon}
+                Coordinates: {coordinates.lat}, {coordinates.long}
               </Popup>
             </Marker>
           </MapContainer>
