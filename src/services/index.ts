@@ -13,3 +13,19 @@ export const findNationalIdData = async (nationalIdentification: string): Promis
   const url = AppConfig.nida!;
   return (await Axios.post(url, { nationalIdentification })).data;
 };
+
+export const findIremboApplicationData = async (applicationNumber: string): Promise<any> => {
+  const url = AppConfig.irembo.application!;
+  const headers = {
+    Accept: 'application/json, text/plain, */*',
+    "Access-Control-Allow-Origin": '*',
+    "Access-Control-Allow-Methods": "GET",
+    'Applicationnumber': applicationNumber,
+    'Nls': 'English',
+    Referer: 'https://irembo.gov.rw/support/documents',
+    'User-Agent': navigator.userAgent,
+    'X-Requested-With': 'XMLHttpRequest',
+  };
+  const response = await Axios.get(url, { headers });
+  return response.data;
+};

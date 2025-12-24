@@ -46,14 +46,8 @@ export default function Home() {
         </div>
 
         <div className="flex mb-2">
-          <Link href="/#iremboApplications" className="p-2 px-4 text-orange-600 bg-white border-amber-50 text-md rounded-3xl hover:text-orange-700 hover:bg-gray-100">
+          <Link href="/irembo-applications" className="p-2 px-4 text-orange-600 bg-white border-amber-50 text-md rounded-3xl hover:text-orange-700 hover:bg-gray-100">
             Search your Irembo application status
-          </Link>
-        </div>
-
-        <div className="flex mb-2">
-          <Link href="/#forexRates" className="p-2 px-4 text-orange-600 bg-white border-amber-50 text-md rounded-3xl hover:text-orange-700 hover:bg-gray-100">
-            View current forex rates
           </Link>
         </div>
       </main>
