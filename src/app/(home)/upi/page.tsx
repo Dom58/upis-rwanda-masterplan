@@ -1,5 +1,6 @@
 "use client";
 
+import { AppConfig } from "@/app/configs";
 import UpidataDisplay from "@/components/upi/UpidataDisplay";
 import { fetchUpiData } from "@/services";
 import { useQuery } from "@tanstack/react-query";
@@ -19,7 +20,7 @@ const Page = () => {
   });
 
   const checkAccessCode = (code: number) => {
-    const ACCESS_CODE = String(process.env.NEXT_PUBLIC_ACCESS_CODE).length;
+    const ACCESS_CODE = String(AppConfig.accessCode).length;
     return code === ACCESS_CODE;
   };
 
@@ -49,9 +50,16 @@ const Page = () => {
           </Link>
           UPIs management system
         </h1>
-        <p className="text-sm">
-          A centralized system for searching Rwanda's UPI for 2020-2050 masterplan.
-        </p>
+        
+        <div>
+          <div className="p-2 mt-1 rounded-lg bg-gray-50/20">
+            <ul className="mt-1 space-y-1 text-sm list-disc list-inside">
+              <li> A centralized system for searching Rwanda's UPIs on 2020-2050 masterplan.</li>
+              <li>Allow you to search for UPI data and view it on Google Map.</li>
+              <li>Allow you to get a real time distance from your current location to reach the land parcel(UPI).</li>
+            </ul>
+          </div>
+        </div>
 
         <form onSubmit={handleVerifyAccessCode} className={`mt-4 ${isAccessValid ? 'hidden' : ''}`}>
           <div className="mb-2">

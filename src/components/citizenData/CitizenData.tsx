@@ -23,8 +23,8 @@ const CitizenData = ({ data }: { data: INewCitizenDataResponse }) => {
                                     </span>
                                 </p>
 
-                                <p><strong className="mr-1">Father Names:</strong> {citizen?.fatherNames}</p>
-                                <p className="mb-4"><strong className="mr-1">Mother Names:</strong> {citizen?.motherNames}</p>
+                                <p><strong className="mr-1">Father Names:</strong> {citizen?.fatherNames ?? '-'}</p>
+                                <p className="mb-4"><strong className="mr-1">Mother Names:</strong> {citizen?.motherNames ?? '-'}</p>
 
                                 <p><strong className="mr-1">Place Of Birth:</strong> {citizen?.placeOfBirth}</p>
                                 <p><strong className="mr-1">Country:</strong> {citizen.birthCountry}</p>

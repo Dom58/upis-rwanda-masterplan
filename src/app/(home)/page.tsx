@@ -28,7 +28,7 @@ export default function Home() {
               <li>A centralized system for managing Rwanda's UPI.</li>
               <li>Allow users to search for UPI data & view it on Google Maps.</li>
               <li>Allow users to get the real distance from the current location to reach the UPI.</li>
-              <li>Easy access and retrieval of citizen information from his national ID.</li>
+              <li>Easy access and get the citizen information from the national ID.</li>
             </ul>
           </div>
         </div>
