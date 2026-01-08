@@ -67,7 +67,7 @@ const Page = () => {
               Access Code(shared by system admin)
             </label>
             <input
-              type="text"
+              type="password"
               value={accessCode}
               onChange={(e) => setAccessCode(e.target.value)}
               placeholder="Enter access code"
