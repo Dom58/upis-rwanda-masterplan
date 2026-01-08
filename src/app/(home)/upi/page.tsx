@@ -64,13 +64,13 @@ const Page = () => {
         <form onSubmit={handleVerifyAccessCode} className={`mt-4 ${isAccessValid ? 'hidden' : ''}`}>
           <div className="mb-2">
             <label className="mb-1 text-gray-600" htmlFor="accessCode">
-              Access Code(shared by system admin)
+              Access password(shared by system admin)
             </label>
             <input
               type="password"
               value={accessCode}
               onChange={(e) => setAccessCode(e.target.value)}
-              placeholder="Enter access code"
+              placeholder="Enter access password"
               className="w-full p-4 border border-white rounded-3xl focus:outline-none"
               required
             />
@@ -80,7 +80,7 @@ const Page = () => {
             type="submit"
             className="flex p-2 mt-2 mb-1 text-white bg-[#fe6787] cursor-pointer rounded-3xl"
           >
-            Verify Access Code
+            Verify access password
           </button>
           {errorMessage && <p className="mt-1 text-sm text-red-600">{errorMessage}</p>}
         </form>
